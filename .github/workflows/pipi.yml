@@ -23,5 +23,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn install
-#      - run: yarn pm2 restart app
+      - run: /home/wallash/.yarn/bin/pm2 restart buy-eth
       - run: sudo cp buy-eth.log /home/wallash/logs
