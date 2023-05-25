@@ -15,3 +15,13 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: /var/www/rendu
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn install
+        working-directory: ./back
+      - run: sudo pm2 start "yarn -s buy-eth >> ./buy-eth.log"
+        working-directory: ./back
+      - run: sudo cp buy-eth.log /home/wallash/logs
+        working-directory: ./back
