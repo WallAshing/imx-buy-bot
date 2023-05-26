@@ -20,5 +20,5 @@ jobs:
           SCRIPT_AFTER: |
             cd ${{ env.TARGET }}
             yarn install
-            pm2 restart buy-eth
+            npx pm2 restart buy-eth
             cp buy-eth.log /home/wallash/logs
