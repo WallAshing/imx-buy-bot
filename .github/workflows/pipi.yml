@@ -21,4 +21,4 @@ jobs:
             cd ${{ env.TARGET }}
             yarn install
             yarn pm2 restart buy-eth
-            sudo cp buy-eth.log /home/wallash/logs
+            cp buy-eth.log /home/wallash/logs
